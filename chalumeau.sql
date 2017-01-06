@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2016 at 09:13 AM
+-- Generation Time: Jan 06, 2017 at 02:01 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -33,13 +33,6 @@ CREATE TABLE `carts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `carts`
---
-
-INSERT INTO `carts` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
-(7, 3, '2016-12-29 14:10:42', '2016-12-29 14:10:42');
-
 -- --------------------------------------------------------
 
 --
@@ -55,14 +48,6 @@ CREATE TABLE `cart_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `cart_items`
---
-
-INSERT INTO `cart_items` (`id`, `cart_id`, `size_id`, `quantity`, `price`, `created_at`, `updated_at`) VALUES
-(3, 7, 19, 1, 13, '2016-12-29 14:10:42', '2016-12-29 14:10:42'),
-(4, 7, 24, 1, 12, '2016-12-29 14:10:42', '2016-12-29 14:10:42');
 
 -- --------------------------------------------------------
 
@@ -171,7 +156,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `site_name`, `about`, `facebook`, `twitter`, `created_at`, `updated_at`) VALUES
-(1, 'Chalumeau', 'Chalumeau -- ', 'http://facebook.com/mowagdy', '', NULL, '2016-12-29 09:22:19');
+(1, 'Chalumeau', 'Chalumeau -- ', 'https://facebook.com/mowagdy', '', NULL, '2016-12-29 09:22:19');
 
 -- --------------------------------------------------------
 
@@ -211,7 +196,7 @@ INSERT INTO `sizes` (`id`, `meal_id`, `size`, `price`, `created_at`, `updated_at
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `role` enum('admin','user') COLLATE utf8_unicode_ci NOT NULL,
+  `role` enum('admin','user') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'user',
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -224,8 +209,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `role`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin', 'admin@chalumeau.com', '$2y$10$AFrNpkVb2pl1SXM3GA8S6./j39SmlClEaXP5T0PX6DvPJUqtbj95K', 'eZHCwuU600RUbk0qwslgd6okZn7gk4TcGcl45ZeTwOzMkulzDfvsmnHpaKl8', NULL, '2016-12-29 14:09:50'),
-(3, 'Moo1', 'user', 'moo@gmail.com', '$2y$10$p0piWBFmOKqcJrlmt//kCuRKXIQDRFs1v.hQKZa39tPS/TZ2TmLam', 'y0qe465A1vXgDDTQzIQbvjvShK5UfYV0nPK5JksAZY6JOZR6K1c0vREvm4Oa', '2016-12-27 21:52:07', '2016-12-29 14:10:46');
+(1, 'Admin', 'admin', 'admin@chalumeau.com', '$2y$10$AFrNpkVb2pl1SXM3GA8S6./j39SmlClEaXP5T0PX6DvPJUqtbj95K', 'eZHCwuU600RUbk0qwslgd6okZn7gk4TcGcl45ZeTwOzMkulzDfvsmnHpaKl8', NULL, '2016-12-29 14:09:50');
 
 --
 -- Indexes for dumped tables
@@ -300,12 +284,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `categories`
 --
@@ -335,7 +319,7 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
