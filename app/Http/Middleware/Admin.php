@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Middleware;
 
 use Closure;
@@ -20,7 +19,7 @@ class Admin
             if (Auth::user()->role=='admin'){
                 return $next($request);
             }
-            return abort(401);
+            return redirect('/')->with('message', 'You do not have permission to access the dashboard!')->with('class', 'alert-danger');
         }
         return redirect('dashboard/login')->with('message', 'You have to login to access this page!')->with('class', 'alert-danger');
     }
